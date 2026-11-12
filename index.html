@@ -1,0 +1,154 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EventSphere | Discover Events</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <header>
+        <nav class="navbar">
+            <h2>Event<span>Sphere</span></h2>
+
+            <div class="nav-links">
+                <a href="#" data-view="home">Home</a>
+                <a href="#" data-view="events">Explore Events</a>
+                <a href="#" data-view="myEvents">My Registrations</a>
+                <a href="#" data-view="admin">Admin</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Home Page -->
+    <section id="home" class="page active">
+        <div class="hero">
+            <h1>Discover Events.<br>Experience More.</h1>
+            <p>Find exciting college events, workshops, hackathons
+               and competitions all in one place.</p>
+            <button onclick="showPage('events')">Explore Events</button>
+        </div>
+
+        <div class="container">
+            <h2>Featured Events</h2>
+            <div id="featuredEvents" class="event-grid"></div>
+        </div>
+    </section>
+
+    <!-- Explore Events -->
+    <section id="events" class="page container">
+        <h1>Explore Events</h1>
+        <p>Find events that match your interests.</p>
+
+        <div class="filters">
+            <input type="text" id="searchInput"
+                   placeholder="Search events...">
+
+            <select id="categoryFilter">
+                <option value="All">All Categories</option>
+                <option value="Technical">Technical</option>
+                <option value="Cultural">Cultural</option>
+                <option value="Sports">Sports</option>
+                <option value="Workshop">Workshop</option>
+                <option value="Hackathon">Hackathon</option>
+            </select>
+        </div>
+
+        <div id="eventList" class="event-grid"></div>
+    </section>
+
+    <!-- My Registrations -->
+    <section id="myEvents" class="page container">
+        <h1>My Registrations</h1>
+        <p>Events you have registered for.</p>
+        <div id="myEventList" class="event-grid"></div>
+    </section>
+
+    <!-- Admin Dashboard -->
+    <section id="admin" class="page container">
+        <h1>Admin Dashboard</h1>
+        <p>Manage college events.</p>
+
+        <div class="stats">
+            <div class="stat-card">
+                <h2 id="totalEvents">0</h2>
+                <p>Total Events</p>
+            </div>
+
+            <div class="stat-card">
+                <h2 id="totalRegistrations">0</h2>
+                <p>Total Registrations</p>
+            </div>
+        </div>
+
+        <h2>Add New Event</h2>
+
+        <form id="eventForm" class="form-box">
+            <input type="text" id="eventTitle"
+                   placeholder="Event Name" required>
+
+            <select id="eventCategory" required>
+                <option value="">Select Category</option>
+                <option>Technical</option>
+                <option>Cultural</option>
+                <option>Sports</option>
+                <option>Workshop</option>
+                <option>Hackathon</option>
+            </select>
+
+            <input type="date" id="eventDate" required>
+            <input type="time" id="eventTime" required>
+
+            <input type="text" id="eventVenue"
+                   placeholder="Event Venue" required>
+
+            <input type="number" id="eventSeats"
+                   placeholder="Available Seats" min="1" required>
+
+            <textarea id="eventDescription"
+                      placeholder="Event Description"
+                      required></textarea>
+
+            <button type="submit">Add Event</button>
+        </form>
+
+        <h2>Manage Events</h2>
+        <div id="adminEventList"></div>
+    </section>
+
+    <!-- Registration Modal -->
+    <div id="registrationModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+
+            <h2>Event Registration</h2>
+
+            <form id="registrationForm">
+                <input type="hidden" id="registerEventId">
+
+                <input type="text" id="studentName"
+                       placeholder="Student Name" required>
+
+                <input type="email" id="studentEmail"
+                       placeholder="Email Address" required>
+
+                <input type="text" id="studentDept"
+                       placeholder="Department" required>
+
+                <button type="submit">Confirm Registration</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <h3>EventSphere</h3>
+        <p>Discover. Register. Participate.</p>
+        <p>&copy; 2026 EventSphere. All Rights Reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
